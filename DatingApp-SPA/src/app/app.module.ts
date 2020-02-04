@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
+import { RouterModule } from '@angular/router';
+import { BsDropdownModule } from 'ngx-bootstrap';
 
 import { AppComponent } from './app.component';
 import { ValueComponent } from './value/value.component';
@@ -10,6 +12,12 @@ import { FormsModule} from '@angular/forms'
 import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { ReactiveFormsModule} from '@angular/forms';
+import { ErrorInterceptorProvider } from './_services/error.interceptor';
+import { ListsComponent } from './lists/lists.component';
+import { MemberListComponent } from './member-list/member-list.component';
+import { MessagesComponent } from './messages/messages.component';
+import { appRoutes} from './routes';
 
 @NgModule({
    declarations: [
@@ -17,15 +25,23 @@ import { RegisterComponent } from './register/register.component';
       ValueComponent,
       NavComponent,
       HomeComponent,
-      RegisterComponent
+      RegisterComponent,
+      ListsComponent,
+      MemberListComponent,
+      MessagesComponent
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
-      FormsModule
+      FormsModule,
+      ReactiveFormsModule,
+      BsDropdownModule.forRoot(),
+      RouterModule,
+      RouterModule.forRoot(appRoutes)
    ],
    providers: [
-      AuthService
+      AuthService,
+      ErrorInterceptorProvider
    ],
    bootstrap: [
       AppComponent

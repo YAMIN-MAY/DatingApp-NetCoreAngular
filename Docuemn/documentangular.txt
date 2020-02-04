@@ -1,0 +1,14 @@
+Using alertifyjs 
+npm install alertifyjs --save
+
+Using JWT library for token handling
+npm install @auth0/angular-jwt
+
+ngx-bootstrap
+npm install ngx-bootstrap@3.0.1 --save
+
+bootswatch
+npm install bootswatch@4.1.1
+
+ng g guard auth --skipTests
+runGuardsAndResolvers: 'always'
